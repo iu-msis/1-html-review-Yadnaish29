@@ -61,7 +61,7 @@ nav {
 
 .nav_links:hover {
   color: #eeeeee;
-  background-color: firebrick;
+  background-color: rgb(255, 221, 127);
   border: 1px solid #eeeeee;
 }
 
