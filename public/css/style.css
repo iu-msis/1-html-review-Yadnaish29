@@ -34,15 +34,17 @@ color: white;
 
 body {
   font-family: sans-serif;
+  margin: 10px;
+  background-color: bisque;
 }
-/* 
+ 
 header {
-  background-color: firebrick;
-  color: white;
+  background-color: rgb(34, 132, 178);
+
   padding: 10px;
   font-size: 36px;
   font-weight: bold;
-} */
+} 
 
 nav {
   background-color: #eeeeee;
@@ -73,7 +75,7 @@ footer {
 }
 
 form{
-
+  margin: 10px;
   padding: 10px;
   background-color: lightgrey;
   }

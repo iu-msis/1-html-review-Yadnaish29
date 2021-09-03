@@ -11,14 +11,14 @@
     
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
    
       <header class="row">
         <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6" >
-       <img class="img-responsive" src="Image/Docker.png" width="100px"> </div>
-       <H4>
+          <a href="img/Docker.png" target="_blank"> <img class="img-responsive" src="img/Docker.png" width="100px"> </div>
+          </a> <H4>
       <div class="col-lg-9 col-md-9 col-sm-6 col-xs-6" > Data & Systems HW 1
       </div>
       </H4>
@@ -38,7 +38,7 @@
 
         <li><a class="ribbon" href="Page2.html"> My favourite Books</a></li>
 
-        <li><a class="ribbon" href="Page3.html"> Know me  </a></li>
+        <li><a class="ribbon" href="Page3.html"> My Playlist  </a></li>
        
              </ul>
       </nav> </div>
@@ -54,40 +54,63 @@
         <tr>
           <th>Book Name</th>
           <th> Author	</th>
+          <th> Year Published	</th>
+          <th> Publisher	</th>
+          <th> Page Count	</th>
+          <th> MRSP	</th>
           <th class="text-center"> Genre </th>
         </tr>
         </thead>
 
         <tbody>
-
+          <!-- (title, author(s), year published, publisher, page count, MSRP) -->
         <tr> 
           <td>The Handmaid’s Tale	</td>
            <td>Margaret Atwood	 </td> 
+           <th> 1985	</th>
+           <th> McClelland & Stewart 	</th>
+           <th> 311	</th>
+           <th> 7.99	</th>
            <td class="text-center"> Dystopian </td>
            </tr>
 
         <tr> 
           <td>Pride and Prejudice	 </td>
           <td> Jane Austen	</td>
+          <th> 1813	</th>
+          <th> T.egerton, White Hall 	</th>
+          <th> 480	</th>
+          <th> 6.99	</th>
           <td class="text-center"> Romance </td>
         </tr>
 
         <tr> 
           <td>The War of the Worlds </td>
           <td>	H.G. Wells</td>
+          <th> 1989	</th>
+          <th>  Independently published (March 17, 2020) 	</th>
+          <th> 120	</th>
+          <th> 6.98	</th>
           <td class="text-center">	Sci-Fi</td>
         </tr>
 
         <tr>
           <td>	All the Light We Cannot See	</td>
           <td> Anthony Doerr</td>
-         
+          <th> 2017	</th>
+          <th>  Scribner 	</th>
+          <th> 544	</th>
+          <th> 8.53	</th>
           <td class="text-center"> Historical Fiction</td>
         </tr>
 
         <tr>
           <td>1984</td>
           <td> George Orwell </td>
+          <th> 1961	</th>
+          <th>  Signet Classic 	</th>
+          <th> 328	</th>
+          <th> 7.45	</th>
           <td class="text-center"> Dystopian </td>
         </tr>
       </tbody>
@@ -100,16 +123,28 @@
       </tfoot>
 
     </table>
-<form  action=""" method="post" >
+<form  action="" method="post" >
        
-       <label for="firstname"> Book Name: </label>
-       <input type="text" name="firstname" id="firstname" ><br>
-       <label for="lastname"> Author: </label>
+       <label for="bookname"> Book Name: </label>
+       <input type="text" name="bookname" id="bookname" ><br>
+       <label for="authname"> Author: </label>
        <!-- /*labels added to id*/ -->
-       <input type="text" name="lastname" id="lastname"><br>
+       <input type="text" name="authname" id="authname"><br>
+       <label for="year"> Published in : </label>
+       <!-- /*labels added to id*/ -->
+       <input type="number" name="year" id="year"><br>
+       <label for="pub"> Publisher: </label>
+       <!-- /*labels added to id*/ -->
+       <input type="text" name="pub" id="pub"><br>
+       <label for="pages"> Pages: </label>
+       <!-- /*labels added to id*/ -->
+       <input type="number" name="pages" id="pages"><br>
+       <label for="mrp"> MRPS: </label>
+       <!-- /*labels added to id*/ -->
+       <input type="number" name="mrp" id="mrp"><br>
       
     
-          Genre: <select name="major" id="major">
+          Genre: <select name="gen" id="gen">
             <option> </option>
             <option value= "Acct"> Fantasy </option>
             <option value="Fin"> Historical Fiction </option>
