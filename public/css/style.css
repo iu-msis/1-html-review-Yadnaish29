@@ -50,8 +50,15 @@ nav {
   background-color: #eeeeee;
   padding: 10px;
 }
+/* .image{
 
+  align-items: center;
+} */
+a {
+  color:firebrick;
+}
 .nav_links {
+  text-align: center;
   color: firebrick;
   background-color: #eeeeee;
   text-decoration: none;
@@ -60,6 +67,7 @@ nav {
 }
 
 .nav_links:hover {
+
   color: #eeeeee;
   background-color: rgb(255, 221, 127);
   border: 1px solid #eeeeee;
