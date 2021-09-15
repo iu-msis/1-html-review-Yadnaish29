@@ -129,7 +129,7 @@ th[role=columnheader]:not(.no-sort):after {
 	margin-top: 7px;
 	border-width: 0 4px 4px;
 	border-style: solid;
-	border-color: #404040 transparent;
+	border-color: white transparent;
 	visibility: hidden;
 	opacity: 0;
 	-ms-user-select: none;
@@ -138,7 +138,7 @@ th[role=columnheader]:not(.no-sort):after {
 	user-select: none;
 }
 
-th[aria-sort=ascending]:not(.no-sort):after {
+th[aria-sort=descending]:not(.no-sort):after {
 	border-bottom: none;
 	border-width: 4px 4px 0;
 }
