@@ -18,7 +18,9 @@ computed: {
         .format('D MMM YYYY');
     }
 },
-created() {
+
+methods: {
+    fetchUserData() {
    
         fetch('https://randomuser.me/api/')
         .then(response => response.json())
@@ -34,10 +36,10 @@ created() {
         console.log("B");
     
 }
-// },
-// created() {
-//     this.fetchUserData();
-// }
+},
+created() {
+    this.fetchUserData();
+}
 }
 
 Vue.createApp(Offer).mount('#offerApp');
