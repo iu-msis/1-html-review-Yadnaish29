@@ -4,7 +4,13 @@ const Offer = {
 
         return {
 
-            "person":{}
+            "person":{
+
+                name: {},
+                dob: {},
+                picture: {},
+                location: {}
+            }
         }
     },
 

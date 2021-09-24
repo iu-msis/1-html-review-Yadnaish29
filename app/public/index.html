@@ -55,7 +55,7 @@
     <img  class="img-responsive center" v-bind:src="person.picture.large" width="100px" >
     <br>
 
-   
+   <!-- <div v-if="person"> -->
     <p>{{person.name.first}} {{person.name.last}}</p>
     <p>{{ person.location.country}}</p>
     <!-- <p>{{ person.dob.date }}</p> -->
@@ -64,6 +64,7 @@
 
 
     <p><a v-bind:href="'mailto:'+person.email">{{person.email}}</a></p>
+  <!-- </div> -->
     <!-- <p>{{ person }}</p>  -->
      <form v-on:submit.prevent="fetchUserData">
       <button type="submit">Reload</button>
