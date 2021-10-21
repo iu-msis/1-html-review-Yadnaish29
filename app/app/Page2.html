@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>
-    
+    <script src="https://unpkg.com/vue@next"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js">
     </script>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
@@ -47,9 +47,12 @@
 
 <main class="row">
 
+  <div id="offerApp">
+
 <h1>My Favourite Books</h1>
 
-    <table id="taskTable" class="table  table-striped table-hover table-condensed">
+
+    <table id= "bookTable" class="table  table-striped table-hover table-condensed">
         <thead class="thead">
         <tr>
           <th>Book Name</th>
@@ -63,56 +66,18 @@
         </thead>
 
         <tbody>
-          <!-- (title, author(s), year published, publisher, page count, MSRP) -->
-        <tr> 
-          <td>The Handmaid’s Tale	</td>
-           <td>Margaret Atwood	 </td> 
-           <th> 1985	</th>
-           <th> McClelland & Stewart 	</th>
-           <th> 311	</th>
-           <th> 7.99	</th>
-           <td class="text-center"> Dystopian </td>
-           </tr>
-
-        <tr> 
-          <td>Pride and Prejudice	 </td>
-          <td> Jane Austen	</td>
-          <th> 1813	</th>
-          <th> T.egerton, White Hall 	</th>
-          <th> 480	</th>
-          <th> 6.99	</th>
-          <td class="text-center"> Romance </td>
+          <div class="col col-4">
+          
+          <tr v-for="book in books">
+            <td>{{ book.bookname }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.yearpub }}</td>
+            <td>{{ book.publisher }}</td>
+            <td>{{ book.pgcount }}</td>
+            <td>{{ prettyDollar(book.mrsp) }}</td>
+            <td>{{ book.genre }}</td>
         </tr>
-
-        <tr> 
-          <td>The War of the Worlds </td>
-          <td>	H.G. Wells</td>
-          <th> 1989	</th>
-          <th>  Independently published (March 17, 2020) 	</th>
-          <th> 120	</th>
-          <th> 6.98	</th>
-          <td class="text-center">	Sci-Fi</td>
-        </tr>
-
-        <tr>
-          <td>	All the Light We Cannot See	</td>
-          <td> Anthony Doerr</td>
-          <th> 2017	</th>
-          <th>  Scribner 	</th>
-          <th> 544	</th>
-          <th> 8.53	</th>
-          <td class="text-center"> Historical Fiction</td>
-        </tr>
-
-        <tr>
-          <td>1984</td>
-          <td> George Orwell </td>
-          <th> 1961	</th>
-          <th>  Signet Classic 	</th>
-          <th> 328	</th>
-          <th> 7.45	</th>
-          <td class="text-center"> Dystopian </td>
-        </tr>
+         
       </tbody>
 
       <tfoot class="tfoot">
@@ -121,58 +86,59 @@
         </tr>
 
       </tfoot>
-
-    </table>
-<form  action="" method="post" >
-       
-       <label for="bookname"> Book Name: </label>
-       <input type="text" name="bookname" id="bookname" ><br>
-       <label for="authname"> Author: </label>
-       <!-- /*labels added to id*/ -->
-       <input type="text" name="authname" id="authname"><br>
-       <label for="year"> Published in : </label>
-       <!-- /*labels added to id*/ -->
-       <input type="number" name="year" id="year"><br>
-       <label for="pub"> Publisher: </label>
-       <!-- /*labels added to id*/ -->
-       <input type="text" name="pub" id="pub"><br>
-       <label for="pages"> Pages: </label>
-       <!-- /*labels added to id*/ -->
-       <input type="number" name="pages" id="pages"><br>
-       <label for="mrp"> MRPS: </label>
-       <!-- /*labels added to id*/ -->
-       <input type="number" name="mrp" id="mrp"><br>
-      
+     
     
-          Genre: <select name="gen" id="gen">
-            <option> </option>
-            <option value= "Acct"> Fantasy </option>
-            <option value="Fin"> Historical Fiction </option>
-            <option value="IS"> Contemporary Fiction</option>
-            <option value="mkt"> Dystopian </option>
-            <option value="ops"> Science- Fiction </option>
-             <option value="IS"> Other</option>
 
-          </select>
-          <br>
-          Comments: <br>
-          <textarea> </textarea> <br>
-          <input type="submit" name="submit" id="submit" value="Submit Form" class="button">
 
-         
-     </form>   
-
+  </nav>    
+    </table>
+    <form v-on:submit.prevent="postNewOffer">
+      <div class="mb-3">
+        <label for="bookname" class="form-label">Book Name</label>
+        <input type="text" v-model="offerForm.bookname"
+         class="form-control" id="bookname">
+      </div>
+      <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" v-model="offerForm.author"
+         class="form-control" id="author">
+      </div>
+      <div class="mb-3">
+        <label for="yearpub" class="form-label">Year Published</label>
+        <input type="number" v-model="offerForm.yearpub" class="form-control" id="yearpub">
+      </div>
+      <div class="mb-3">
+        <label for="publisher" class="form-label">Publisher</label>
+        <input type="text" v-model="offerForm.publisher"
+         class="form-control" id="publisher">
+      </div>
+      <div class="mb-3">
+        <label for="pgcount" class="form-label">Page Count</label>
+        <input type="number" v-model="offerForm.pgcount" class="form-control" id="pgcount">
+      </div>
+      <div class="mb-3">
+        <label for="mrsp" class="form-label">MRSP</label>
+        <input type="number" v-model="offerForm.mrsp" class="form-control" id="mrsp">
+      </div>
+      <div class="mb-3">
+        <label for="genre" class="form-label">Genre</label>
+        <input type="text" v-model="offerForm.genre"
+         class="form-control" id="publisher">
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>  
+ 
      
 <a href="https://www.google.com/search?q=docker+logo&rlz=1C1UEAD_enUS962US962&sxsrf=AOaemvLhyiBnK4VBD8c_dT18OGCMWM-kPQ:1630639638790&tbm=isch&source=iu&ictx=1&fir=5xBdJUaqLlvTxM%252CQ1n-u_TTTAkEOM%252C_&vet=1&usg=AI4_-kR_PEYzYWRnJXLFp9FzF5dq_aqRag&sa=X&sqi=2&ved=2ahUKEwjhvLSD7uHyAhWfg_0HHdPYD9cQ9QF6BAgIEAE&biw=1280&bih=552&dpr=1.5#imgrc=5xBdJUaqLlvTxM"> Source for Docker IMG</a>
-     
+</div>
 </main>
-
-<script src="js/tablesort.min.js"> </script>
-
-<script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+<script src="./js/books.js"></script>
+<!-- <script>
 
   // https://github.com/tristen/tablesort/blob/gh-pages/tablesort.css
   new Tablesort(document.getElementById('taskTable'));
-</script>
+</script> -->
   </body>
 </html>
